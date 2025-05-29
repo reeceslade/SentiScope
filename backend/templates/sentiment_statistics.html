@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Sentiment Analytics Dashboard{% endblock %}
+
+{% block additional_head %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.134.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="{{ url_for('static', filename='js/sentiment_statistics.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/visualization_utils.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <section class="welcome-text text-center">
+            <h1>Sentiment Analysis Dashboard</h1>
+            <h4>Search and analyze sentiment distribution across different sources and queries</h4>
+        </section>
+
+        <div class="card">
+            <div class="card-header">
+                <h3><i class="fas fa-filter"></i> Filters</h3>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="source-dropdown"><i class="fas fa-database"></i> Data Source</label>
+                    <select id="source-dropdown" class="form-control">
+                        <option value="">Select a Source</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="query-dropdown"><i class="fas fa-search"></i> Search Query</label>
+                    <select id="query-dropdown" class="form-control">
+                        <option value="">Select a Search Query</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="model-dropdown"><i class="fas fa-brain me-2"></i> AI Model</label>
+                    <select id="model-dropdown" class="form-control">
+                        <option value="">Select an AI Model</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div id="loading" class="loading">
+            <i class="fas fa-spinner"></i>
+        </div>
+        
+        <div id="sentiment-stats">
+            <div class="card">
+                <div class="card-header">
+                    <h3><i class="fas fa-chart-pie"></i> Sentiment Distribution</h3>
+                </div>
+                <h4 id="stats-heading"></h4>
+                <div id="sentiment-details"></div>
+                <div id="threejs-container"></div>
+                <div class="controls-legend">
+                    <span><i class="fas fa-mouse"></i> Drag to rotate</span>
+                    <span><i class="fas fa-expand-arrows-alt"></i> Scroll to zoom</span>
+                    <span><i class="fas fa-hand-pointer"></i> Hover for details</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="no-data" class="no-data">
+            <i class="fas fa-chart-bar"></i>
+            <p>Select a source and query to visualize sentiment data</p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+services:
+  web:
+    build: .
+    env_file: .env.docker
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - PYTHONPATH=/app
+    depends_on:
+      db:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+    volumes:
+      - ./backend:/app/backend
+      - ./static:/app/static
+      - ./templates:/app/templates
+    restart: unless-stopped
+    networks:
+      - sentiscope-network
+
+  db:
+    image: postgres:14
+    env_file: .env.docker
+    ports:
+      - "5433:5432"    
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - sentiscope-network
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_ORIGINS=*
+    restart: unless-stopped
+    networks:
+      - sentiscope-network
+    # Optional: uncomment if you have GPU support
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+volumes:
+  postgres_data:
+    name: sentiment_analysis_postgres_data
+  ollama_data:
+    name: sentiment_analysis_ollama_data
+
+networks:
+  sentiscope-network:
+    driver: bridge

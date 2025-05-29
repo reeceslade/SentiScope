@@ -1,0 +1,78 @@
+/* Table Styles */
+#feedback-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#feedback-table th,
+#feedback-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#feedback-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+#feedback-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+#feedback-table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Responsive table styles */
+@media screen and (max-width: 1050px) {
+    /* Hide table headers (but not display: none, for accessibility) */
+    #feedback-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+    
+    #feedback-table tr {
+        display: block;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    #feedback-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 15px;
+        text-align: right;
+        border-bottom: 1px solid #eee;
+    }
+    
+    #feedback-table td:last-child {
+        border-bottom: none;
+    }
+    
+    /* Add labels to each cell */
+    #feedback-table td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--primary-color);
+        font-size: 12px;
+    }
+}

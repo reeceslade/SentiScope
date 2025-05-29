@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Model Feedback Data{% endblock %}
+
+{% block additional_head %}
+    <script src="{{ url_for('static', filename='js/model_feedback.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <section class="welcome-text text-center">
+            <h1>Model Feedback Data</h1>
+            <h4>View feedback submitted by users on sentiment predictions</h4>
+        </section>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3><i class="fas fa-comment-dots"></i> Feedback Data</h3>
+            </div>
+            
+            <table id="feedback-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Sentiment</th>
+                        <th>Model Used</th>
+                        <th>Feedback Type</th>
+                        <th>Feedback Text</th>
+                        <th>Timestamp</th>
+                        <th>User</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <div id="no-data" class="no-data" style="display: none;">
+                <i class="fas fa-comment-slash"></i>
+                <p>No feedback data available yet</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

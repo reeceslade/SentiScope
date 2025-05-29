@@ -1,0 +1,27 @@
+:root {
+    /* Colors */
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --light-bg: #f8f9fa;
+    --dark-text: #212529;
+    --text-light: #6c757d;
+    --border: #00000069;
+    
+    /* UI Elements */
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --card-shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    
+    /* Sentiment Colors */
+    --positive: #4cc9f0;
+    --neutral: #e9ecef;
+    --negative: #f72585;
+    
+    /* Progress Colors */
+    --progress-bg: #f0f0f0;
+    --progress-primary: #3b7ddd;
+    --progress-success: #28a745;
+    --progress-warning: #ffc107;
+    --progress-danger: #dc3545;
+    --progress-neutral: #6c757d;
+}

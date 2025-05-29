@@ -1,0 +1,12 @@
+/* Import all CSS files */
+@import 'variables.css';
+@import 'layout.css';
+@import 'components.css';
+@import 'forms.css'; 
+@import 'tables.css';
+@import 'profile.css';
+@import 'navigation.css';
+@import 'stats.css';
+@import 'progress.css';
+@import 'animations.css';
+@import 'responsive.css';

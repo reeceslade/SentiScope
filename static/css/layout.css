@@ -1,0 +1,89 @@
+/* Global Layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+.content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    text-align: center;
+    padding: 1.5rem 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Containers */
+.container {
+    /* max-width: 900px; */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Headers */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 2.5rem 0;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.header p {
+    text-align: center;
+    margin-top: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+/* Welcome Text */
+.welcome-text {
+    padding: 2rem 0;
+}
+
+.welcome-text h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.welcome-text h4 {
+    font-weight: 400;
+    color: var(--text-light);
+    margin-top: 0;
+}
+
+/* Helper Classes */
+.text-center {
+    text-align: center;
+}
+
+.container.mt-4.about-us {
+    text-align: center;
+}

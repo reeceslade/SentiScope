@@ -1,0 +1,94 @@
+/* Cards */
+.card {
+    background-color: white;
+    border: none;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Highlight Boxes */
+.highlight-box {
+    background-color: rgba(67, 97, 238, 0.05);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Contact Info Box */
+.contact-info {
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-info h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+/* Badges */
+.badge {
+    padding: 0.5em 0.75em;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.sentiment-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.sentiment-positive {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--progress-success);
+}
+
+.sentiment-negative {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--progress-danger);
+}
+
+.sentiment-neutral {
+    background-color: rgba(108, 117, 125, 0.1);
+    color: var(--progress-neutral);
+}
+
+/* No Data Display */
+.no-data {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-light);
+}
+
+.no-data i {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.no-data p {
+    font-size: 18px;
+    margin: 0;
+}

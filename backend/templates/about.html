@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}About | SentiScope{% endblock %}
+
+{% block additional_head %}{% endblock %}
+
+{% block content %}
+  <div class="container mt-4 about-us">
+    <section class="welcome-text text-center">
+            <h1>About SentiScope</h1>
+        </section>
+    <img src="{{ url_for('static', filename='/images/reece.jpg') }}" alt="Reece Slade" class="profile-pic">
+    <p>
+      <strong>SentiScope</strong> is a web-based application developed by <strong>Reece Slade</strong>, a third-year Software Engineering Student at Bournemouth University, as part of my undergraduate dissertation project.
+    </p>
+    <p>
+      In today's fast-paced digital world, we are constantly exposed to an overwhelming volume of content from news outlets and social media platforms. This information often comes with bias, as various organizations may promote specific political narratives or agendas.
+    </p>
+    <p>
+      The idea behind SentiScope is to provide users with a tool that leverages large language models (LLMs) to analyze sentiment in online content, particularly around political topics and public figures. By examining the tone and language used, SentiScope helps users better understand potential bias, with the added ability to receive natural-language explanations directly from the model.
+    </p>
+    <p>
+      This project combines natural language processing, data visualization, and ethical technology to promote critical thinking and media literacy.
+    </p>
+  </div>
+{% endblock %}

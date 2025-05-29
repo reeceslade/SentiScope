@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Login | SentiScope{% endblock %}
+
+{% block additional_head %}
+<style>
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+  <div class="login-container">
+    <h1>Welcome to SentiScope</h1>
+    <a class="google-btn" href="{{ url_for('auth.login') }}">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google logo">
+      Sign in with Google
+    </a>
+    <div class="footer">Your data remains private and secure.</div>
+  </div>
+{% endblock %}

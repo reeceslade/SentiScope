@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}SentiScope{% endblock %}
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/ui-helpers.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/error-handling.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/form-handlers.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/search-functions.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/feedback-system.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/event-listeners.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container custom-container mt-4">
+        <section class="welcome-text text-center">
+            <h1>Sentiment Analysis Dashboard</h1>
+            <h4>Perform searches across multiple sources and analyze the sentiment distribution of the results based on user queries</h4>
+        </section>
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="form-container">
+                    <form id="searchForm">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label for="query" class="form-label fw-semibold">
+                                    <i class="fas fa-search me-2"></i>Search Query
+                                </label>
+                                <input type="text" class="form-control" id="query" name="query" 
+                                    placeholder="Enter political figures, topics, or events..." required>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="categorySelect" class="form-label fw-semibold">
+                                    <i class="fas fa-folder me-2"></i>Content Type
+                                </label>
+                                <select class="form-select" id="categorySelect" name="category">
+                                    <!-- Options populated by JS -->
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="modelSelect" class="form-label fw-semibold">
+                                    <i class="fas fa-brain me-2"></i>AI Model
+                                </label>
+                                <select class="form-select" id="modelSelect" name="model">
+                                    <option value="gemma3:1b">Gemma 3 (1B)</option>
+                                    <option value="gemma3:4b">Gemma 3 (4B)</option>
+                                    <option value="gemma3:12b">Gemma 3 (12B)</option>
+                                    <!-- <option value="deepseek-r1:1.5b">DeepSeek R1 (1.5B)</option> -->
+                                    <option value="deepseek-r1:7b">DeepSeek R1 (7B)</option>
+                                    <option value="deepseek-r1:14b">DeepSeek R1 (14B)</option>
+                                    <option value="qwen2.5:1.5b">Qwen 2.5 (1.5B)</option>
+                                    <option value="qwen2.5:7b">Qwen 2.5 (7B)</option>
+                                    <option value="qwen2.5:14b">Qwen 2.5 (14B)</option>
+                                  </select>
+                            </div>
+                            
+                            <div id="customElementsContainer" class="row g-3">
+                                <!-- Dynamic form fields will be inserted here -->
+                            </div>
+                            
+                            <div class="col-12 text-center mt-4">
+                                <button type="submit" class="search-btn btn btn-lg px-5">
+                                    <i class="fas fa-search me-2"></i>Analyze Now
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="results-container" id="results" style="display: none;">
+                    <!-- Results will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
